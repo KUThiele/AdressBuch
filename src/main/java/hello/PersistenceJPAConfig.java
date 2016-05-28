@@ -37,10 +37,10 @@ public class PersistenceJPAConfig{
     @Bean
     public DataSource dataSource(){
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("com.mysql.cj.jdbc.Driver");
-        dataSource.setUrl("jdbc:mysql://localhost:3306/altenvulndb?useSSL=false&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC");
+        dataSource.setDriverClassName("org.mariadb.jdbc.Driver");
+        dataSource.setUrl("jdbc:mariadb://localhost:3306/adressdb");
         dataSource.setUsername( "root" );
-        dataSource.setPassword( "admin" );
+        dataSource.setPassword( "" );
         return dataSource;
     }
 
@@ -60,7 +60,7 @@ public class PersistenceJPAConfig{
     Properties additionalProperties() {
         Properties properties = new Properties();
         properties.setProperty("hibernate.hbm2ddl.auto", "create-drop");
-        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQL5Dialect");
+        properties.setProperty("hibernate.dialect", "org.hibernate.dialect.MySQLDialect");
         return properties;
     }
 }

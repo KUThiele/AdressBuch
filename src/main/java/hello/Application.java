@@ -15,8 +15,10 @@ public class Application {
 
     public static void main(String[] args){
         AnnotationConfigApplicationContext context=new AnnotationConfigApplicationContext(PersistenceJPAConfig.class);
-
-
+        CustomerService service= (CustomerService) context.getBean("CustomerService");
+        Customer cust=new Customer("Kai","Thiele");
+        service.createCustomer(cust);
     }
+
 
 }
